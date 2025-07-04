@@ -1,15 +1,7 @@
-@import "tailwindcss";
-
+/* Light/dark color variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +11,33 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ✅ Base styles */
+@layer base {
+  body {
+    font-family: var(--font-raleway), sans-serif;
+    background-color: #F3F3FF;
+    color: #03314B;
+  }
+
+  ::selection {
+    background-color: #FCDDEC;
+  }
+}
+
+/* ✅ Custom utilities */
+@layer utilities {
+  .text-primary    { @apply text-[#03314B]; }
+  .text-secondary  { @apply text-[#8198A5]; }
+  .text-accent     { @apply text-[#F61C7A]; }
+  .text-heading    { @apply text-[#3500D4]; }
+  .text-muted      { @apply text-[#908FEC]; }
+
+  .bg-selection    { @apply bg-[#FCDDEC]; }
+  .bg-surface      { @apply bg-[#F3F3FF]; }
+
+  .text-md         { @apply text-[18px]; }
+  .text-base       { @apply text-[16px]; }
+  .text-sm         { @apply text-[14px]; }
+  .text-xs         { @apply text-[12px]; }
+  .text-lg         { @apply text-[24px]; }
 }
